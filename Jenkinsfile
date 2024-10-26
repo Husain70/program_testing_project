@@ -20,25 +20,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    bat 'docker build -t husain7/bookstore:latest .'
-                }
-            }
-        }
-
-        stage('Push Image to Hub') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'Dockerhub', variable: 'Dockerhub')]) {
-                        bat 'docker login -u husain7 -p %Dockerhub%'
-                    }
-                    bat 'docker push husain7/bookstore:latest'
-                }
-            }
-        }
-
         stage('Deploy to Server') {
             steps {
                 script {
