@@ -20,6 +20,14 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    bat 'docker build -t husain7/bookstore:latest .'
+                }
+            }
+        }
+
         stage('Deploy to Server') {
             steps {
                 script {
