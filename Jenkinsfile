@@ -28,7 +28,7 @@ pipeline {
                     bat 'docker pull husain7/bookstore:latest'
                     bat 'docker stop bookstore || true'
                     bat 'docker rm bookstore || true'
-                    bat 'docker run -d -p 8088:8088 --name bookstore husain7/bookstore:latest'
+                    bat 'docker run -d -p 8000:8000 --name bookstore husain7/bookstore:latest'
                 }
             }
         }
