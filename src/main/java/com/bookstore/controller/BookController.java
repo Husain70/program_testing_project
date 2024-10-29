@@ -20,6 +20,12 @@ public class BookController {
         this.bookRepository = new BookRepository();
     }
 
+    // Redirect root URL to books page
+    @GetMapping("/")
+    public String redirectToBooks() {
+        return "redirect:/books";
+    }
+
     // Support search functionality
     @GetMapping("/books")
     public String getAllBooks(@RequestParam(value = "search", required = false) String search, Model model) {

@@ -1,23 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+         
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bookstore</groupId>
     <artifactId>bookstore</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>jar</packaging>  <!-- Changed to JAR -->
 
     <name>Bookstore Application</name>
 
-    <properties>
+    <properties> 
         <java.version>17</java.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>3.3.4</version>
         <relativePath/>
     </parent>
 
@@ -38,7 +40,7 @@
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.web</groupId>
@@ -46,25 +48,12 @@
             <version>3.0.1</version>
         </dependency>
 
-        <!-- Spring Boot Test Starter -->
+        <!-- Spring Boot Test Starter --> 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -80,8 +69,9 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.8.1</version>
+                <version>2.17.1</version>
             </plugin>
         </plugins>
     </build>
 </project>
+<!-- Running when commits -->

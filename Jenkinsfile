@@ -1,31 +1,35 @@
 pipeline {
     agent any
+
+
+    
     tools {
         maven 'M3'
     }
     stages {
-        stage('Build Maven') {
+        stage('Source Code Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/program_testing_project']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/AhmadDoobi/program_testing_project']])
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                checkout scmGit(
+                    branches: [[name: '*/program_testing_project']],
+                    extensions: [],
+                    userRemoteConfigs: [[url: 'https://github.com/Husain70/program_testing_project']]
+                )
             }
         }
 
-        stage('Build docker image') {
+        stage('Build and Test') {
             steps {
-                script {
-                    bat 'docker build -t husain7/bookstore:latest .'
-                }
+                bat "mvn clean test package"
             }
         }
 
-        stage('Push image to Hub') {
+        stage('Deploy to Server') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'Dockerhub', variable: 'Dockerhub')]) {
-                        bat 'docker login -u husain7 -p %Dockerhub%'
-                    }
-                    bat 'docker push husain7/bookstore:latest'
+                    bat 'docker pull husain7/bookstore:latest'
+                    bat 'docker stop bookstore || true'
+                    bat 'docker rm bookstore || true'
+                    bat 'docker run -d -p 8000:8088 --name bookstore husain7/bookstore:latest' 
                 }
             }
         }
