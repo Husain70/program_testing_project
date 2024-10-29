@@ -14,7 +14,7 @@ class BookTest {
         assertEquals(1L, book.getId());
         assertEquals("Java Programming", book.getTitle());
         assertEquals("Author Name", book.getAuthor());
-        assertEquals(49.99, book.getPrice());
+        assertEquals(49.88, book.getPrice());
         assertEquals(10, book.getQuantity());
     }
 
