@@ -16,6 +16,7 @@ class BookTest {
         assertEquals("Author Name", book.getAuthor());
         assertEquals(49.88, book.getPrice());
         assertEquals(10, book.getQuantity());
+        
     }
 
     @Test
