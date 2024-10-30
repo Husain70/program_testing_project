@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>  <!-- Changed to JAR -->
 
-    <name>Bookstore Application</name>
+    <name>Bookstore Application</name>    <!-- Runing When Commit -->
 
     <properties> 
         <java.version>17</java.version>
