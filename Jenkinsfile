@@ -37,18 +37,15 @@ pipeline {
     post {
         success {
             mail to: 'hhhalsaigh@gmail.com',
-                 subject: 'Jenkins Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER}',
-                 body: """The Jenkins build ${env.JOB_NAME} #${env.BUILD_NUMBER} completed successfully.
-
-View the build details at ${env.BUILD_URL}."""
+                 subject: "SUCCESS: Build and Deployment Succeeded",
+                 body: "Good news! The Jenkins pipeline executed successfully, and your project was deployed."
+            echo 'Build and deployment succeeded!'
         }
         failure {
             mail to: 'hhhalsaigh@gmail.com',
-                 subject: 'Jenkins Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}',
-                 body: """The Jenkins build ${env.JOB_NAME} #${env.BUILD_NUMBER} has failed.
-
-Check the console output at ${env.BUILD_URL} to see what went wrong."""
+                 subject: "FAILURE: Build or Deployment Failed",
+                 body: "Unfortunately, the Jenkins pipeline failed. Please check the console output for more details."
+            echo 'Build or deployment failed.'
         }
     }
 }
-
